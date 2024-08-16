@@ -161,6 +161,10 @@ class Mobile extends Device {
 let mb = new Mobile(1, 'smartphone', 'apple');
 // console.log(mb.getId());
 
+// functions 
+const printingHello = function(): void {
+    console.log(`hello`); 
+}
 
 // functions parameters 
 // Optional parameters
@@ -185,3 +189,21 @@ function getNames(...names: string[]) {
 }
 
 getNames('Aryan', 'Rahul', 'Abhi', 'Rohan', 'Karthik'); // passing mutiple string values to the function of paramter type string[]
+
+type UserType = {
+    name: string,
+    age?: number, // optional field
+    email: string,
+}
+
+let userS: UserType = {
+    name: 'Aryan',
+    email: 'aryan@123.com'
+}
+
+// modules -> imports and exports
+
+export const PI = 3.14
+
+//  to import 
+// import { PI } from 'dir/filename'

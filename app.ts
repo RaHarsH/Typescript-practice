@@ -1,7 +1,6 @@
 // primitive types
 // number, string, null, boolean etc
 
-
 // IMPORTANT : never use any or unknown type and never let it occur
 let num: number;
 num = 12;
