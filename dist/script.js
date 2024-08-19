@@ -149,3 +149,47 @@ const callBackfn = (num) => {
     return num * num;
 };
 arr.forEach((num) => console.log(callBackfn(num)));
+// Binary Search 
+// recursive approach
+// let array: number[] = [1, 2, 8, 10, 89, 11, 12, 15];
+// sort the array for binary search to work
+// array.sort();
+// console.log(array);
+const binarySearch = (arr, low, high, key) => {
+    if (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+        if (arr[mid] === key) {
+            return mid;
+        }
+        else if (key < arr[mid]) {
+            return binarySearch(arr, low, mid - 1, key);
+        }
+        else {
+            return binarySearch(arr, mid + 1, high, key);
+        }
+    }
+    return -1;
+};
+// let pos: number = binarySearch(array, 0, array.length - 1, 89);
+// console.log(pos);
+// iterative approach
+let array = [1, 2, 8, 10, 89, 11, 12, 15];
+array.sort();
+console.log(array);
+function bSearchIterative(arr, low, high, key) {
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+        if (key === arr[mid]) {
+            return mid;
+        }
+        else if (key < arr[mid]) {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
+    return -1;
+}
+let pos = bSearchIterative(array, 0, array.length - 1, 89);
+console.log(pos);
