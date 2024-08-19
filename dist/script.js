@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PI = void 0;
 function acceptUser(user) {
     console.log(user);
 }
@@ -98,6 +100,10 @@ class Mobile extends Device {
 }
 let mb = new Mobile(1, 'smartphone', 'apple');
 // console.log(mb.getId());
+// functions 
+const printingHello = function () {
+    console.log(`hello`);
+};
 // functions parameters 
 // Optional parameters
 // here age is an opetional parameter: using ?
@@ -115,3 +121,31 @@ function getNames(...names) {
     console.log(names);
 }
 getNames('Aryan', 'Rahul', 'Abhi', 'Rohan', 'Karthik'); // passing mutiple string values to the function of paramter type string[]
+let userS = {
+    name: 'Aryan',
+    email: 'aryan@123.com'
+};
+// modules -> imports and exports
+exports.PI = 3.14;
+//  to import 
+// import { PI } from 'dir/filename'
+// array methods
+// map() method
+let arr = [1, 2, 3, 5, 7];
+function addNum(num1, num2) {
+    return num1 + num2;
+}
+let newArray = arr.map((num) => {
+    if (num > 5) {
+        return addNum(num, 10);
+    }
+    else
+        return num + 1;
+});
+// console.log(newArray);
+// forEach method()
+const callBackfn = (num) => {
+    //  console.log(num * num);
+    return num * num;
+};
+arr.forEach((num) => console.log(callBackfn(num)));

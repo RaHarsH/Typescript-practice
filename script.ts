@@ -207,3 +207,30 @@ export const PI = 3.14
 
 //  to import 
 // import { PI } from 'dir/filename'
+
+
+// array methods
+// map() method
+
+let arr: number[] = [1, 2, 3, 5, 7];
+
+function addNum(num1: number, num2: number): number{
+    return num1 + num2;
+}
+
+let newArray: number[] = arr.map((num: number): number => {
+    if(num > 5) {
+        return addNum(num, 10);
+    }
+    else return num + 1;
+})
+
+// console.log(newArray);
+
+// forEach method()
+const callBackfn = (num: number): number => {
+//  console.log(num * num);
+    return num * num
+}
+arr.forEach((num): void => console.log(callBackfn(num)));
+
