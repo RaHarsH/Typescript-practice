@@ -173,9 +173,9 @@ const binarySearch = (arr, low, high, key) => {
 // let pos: number = binarySearch(array, 0, array.length - 1, 89);
 // console.log(pos);
 // iterative approach
-let array = [1, 2, 8, 10, 89, 11, 12, 15];
-array.sort();
-console.log(array);
+// let array: number[] = [1, 2, 8, 10, 89, 11, 12, 15];
+// array.sort();
+// console.log(array);
 function bSearchIterative(arr, low, high, key) {
     while (low <= high) {
         let mid = Math.floor((low + high) / 2);
@@ -191,5 +191,37 @@ function bSearchIterative(arr, low, high, key) {
     }
     return -1;
 }
-let pos = bSearchIterative(array, 0, array.length - 1, 89);
-console.log(pos);
+// let pos: number = bSearchIterative(array, 0, array.length - 1, 89);
+// console.log(pos);
+// 
+let array = [1, 2, 8, 10, 89, 11, 12, 15];
+function getMinMax(arr, low, high, min, max) {
+    if (low == high) {
+        min = max = arr[low];
+        return [min, max];
+    }
+    else if (low == high - 1) {
+        if (arr[low] < arr[high]) {
+            min = arr[low];
+            max = arr[high];
+            return [min, max];
+        }
+        else {
+            min = arr[high];
+            max = arr[low];
+            return [min, max];
+        }
+    }
+    else {
+        let mid = Math.floor((low + high) / 2);
+        let [min1, max1] = getMinMax(arr, low, mid, min, max);
+        let [min2, max2] = getMinMax(arr, mid + 1, high, min, max);
+        min = Math.min(min1, min2);
+        max = Math.max(max1, max2);
+        return [min, max];
+    }
+}
+let [min, max] = getMinMax(array, 0, array.length - 1, 10000, 0); // pass initial values of min and max
+console.log(`minimum element = ${min}`);
+console.log(`maximum element = ${max}`);
+console.table(array);
