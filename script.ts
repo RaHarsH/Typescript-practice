@@ -234,3 +234,130 @@ const callBackfn = (num: number): number => {
 }
 arr.forEach((num): void => console.log(callBackfn(num)));
 
+// Binary Search 
+// recursive approach
+
+// let array: number[] = [1, 2, 8, 10, 89, 11, 12, 15];
+
+// sort the array for binary search to work
+
+// array.sort();
+// console.log(array);
+
+const binarySearch = (arr: number[], low: number, high: number, key: number): number => {
+    if(low <= high) {
+        let mid = Math.floor((low + high)/2);
+        if(arr[mid] === key) {
+            return mid;
+        }
+        else if(key < arr[mid]) {
+           return binarySearch(arr, low, mid - 1, key);
+        }
+        else {
+            return binarySearch(arr, mid + 1, high, key);
+        }
+    }
+    return -1;
+}
+
+// let pos: number = binarySearch(array, 0, array.length - 1, 89);
+// console.log(pos);
+
+
+// iterative approach
+
+// let array: number[] = [1, 2, 8, 10, 89, 11, 12, 15];
+
+// array.sort();
+// console.log(array);
+
+function bSearchIterative(arr: number[], low: number, high: number, key: number): number {
+    while(low <= high) {
+        let mid: number = Math.floor((low + high) / 2);
+
+        if(key === arr[mid]) {
+            return mid;
+        }
+        else if(key < arr[mid])  {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
+
+    return -1;
+}
+
+
+// let pos: number = bSearchIterative(array, 0, array.length - 1, 89);
+// console.log(pos);
+
+// 
+
+
+let array: number[] = [1, 2, 8, 10, 89, 11, 12, 15];
+
+function getMinMax(arr: number[], low: number, high: number, min: number, max: number): [number, number] {
+    if (low == high) {
+        min = max = arr[low];
+        return [min, max];
+    } else if (low == high - 1) {
+        if (arr[low] < arr[high]) {
+            min = arr[low];
+            max = arr[high];
+            return [min, max];
+        } else {
+            min = arr[high];
+            max = arr[low]
+            return [min, max];
+        }
+    } else {
+        let mid: number = Math.floor((low + high) / 2);
+        let [min1, max1] = getMinMax(arr, low, mid, min, max);
+        let [min2, max2] = getMinMax(arr, mid + 1, high, min, max);
+
+        min = Math.min(min1, min2);
+        max = Math.max(max1, max2);
+
+        return [min, max];
+    }
+}
+
+let [min, max] = getMinMax(array, 0, array.length - 1, 10000, 0); // pass initial values of min and max
+
+console.log(`minimum element = ${min}`);
+console.log(`maximum element = ${max}`);
+
+console.table(array);
+
+
+// Heap construction using bottom up approach
+
+const bottomUpHeapConstruct = (heap: number[]): number[] => {
+    const n = heap.length;
+    for(let i = Math.floor(n/2); i >= 1; i--) {
+        let val: number = heap[i]; // store the parent node value 
+        let k: number = i; // store the index of the parent node
+        let isHeap: boolean = false;
+        let j = 2 * k; // get the left child of the parent node
+        while(!isHeap && j <= n) {
+            // check if one more child is present to parent i.e the right child
+            if(j < n) {
+                if(heap[j] < heap[j + 1])  {
+                    j = j + 1;
+                }
+            }
+            if(val >= heap[j]) {
+                isHeap = true;
+            }
+            else {
+                heap[k] = heap[j];
+                k = j;
+            }
+        }
+        heap[k] = val; // place the initial parent node in its correct position
+    }
+    return heap;
+}
+
