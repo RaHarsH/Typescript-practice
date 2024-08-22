@@ -361,3 +361,39 @@ const bottomUpHeapConstruct = (heap: number[]): number[] => {
     return heap;
 }
 
+
+// Insertion Sort using class
+
+class Sort {
+    private nums: number[];
+    // pass the array using rest when creating an instance
+    constructor(...nums: number[]) {
+        this.nums = nums;
+    }
+
+    public printArray() {
+        console.table(this.nums);
+    }
+
+    public insertionSort() {
+        for(let i: number = 1; i < this.nums.length; i++) {
+            let curVal: number = this.nums[i];
+            let idx: number = i;
+            let j: number = i - 1;
+            while(j >= 0 && this.nums[j] > curVal) {
+                this.nums[j + 1] = this.nums[j];
+                j--;
+            }
+            this.nums[j + 1] = curVal;
+        }
+        console.log(`Array sorted!`);;
+    }
+}
+
+const obj = new Sort(5, 1, 4, 10, 6, 9, 8, 15, 21, 18); // pass the array elements
+obj.printArray();
+obj.insertionSort();
+obj.printArray();
+
+
+

@@ -225,3 +225,58 @@ let [min, max] = getMinMax(array, 0, array.length - 1, 10000, 0); // pass initia
 console.log(`minimum element = ${min}`);
 console.log(`maximum element = ${max}`);
 console.table(array);
+// Heap construction using bottom up approach
+const bottomUpHeapConstruct = (heap) => {
+    const n = heap.length;
+    for (let i = Math.floor(n / 2); i >= 1; i--) {
+        let val = heap[i]; // store the parent node value 
+        let k = i; // store the index of the parent node
+        let isHeap = false;
+        let j = 2 * k; // get the left child of the parent node
+        while (!isHeap && j <= n) {
+            // check if one more child is present to parent i.e the right child
+            if (j < n) {
+                if (heap[j] < heap[j + 1]) {
+                    j = j + 1;
+                }
+            }
+            if (val >= heap[j]) {
+                isHeap = true;
+            }
+            else {
+                heap[k] = heap[j];
+                k = j;
+            }
+        }
+        heap[k] = val; // place the initial parent node in its correct position
+    }
+    return heap;
+};
+// Insertion Sort using class
+class Sort {
+    // pass the array using rest when creating an instance
+    constructor(...nums) {
+        this.nums = nums;
+    }
+    printArray() {
+        console.table(this.nums);
+    }
+    insertionSort() {
+        for (let i = 1; i < this.nums.length; i++) {
+            let curVal = this.nums[i];
+            let idx = i;
+            let j = i - 1;
+            while (j >= 0 && this.nums[j] > curVal) {
+                this.nums[j + 1] = this.nums[j];
+                j--;
+            }
+            this.nums[j + 1] = curVal;
+        }
+        console.log(`Array sorted!`);
+        ;
+    }
+}
+const obj = new Sort(5, 1, 4, 10, 6, 9, 8, 15, 21, 18); // pass the array elements
+// obj.printArray();
+obj.insertionSort();
+obj.printArray();
