@@ -362,7 +362,7 @@ const bottomUpHeapConstruct = (heap: number[]): number[] => {
 }
 
 
-// Insertion Sort using class
+// Insertion Sort using Sort class and creating its instance
 
 class Sort {
     private nums: number[];
