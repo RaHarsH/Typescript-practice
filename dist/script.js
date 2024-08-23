@@ -252,7 +252,7 @@ const bottomUpHeapConstruct = (heap) => {
     }
     return heap;
 };
-// Insertion Sort using class
+// Insertion Sort using Sort class and creating its instance
 class Sort {
     // pass the array using rest when creating an instance
     constructor(...nums) {
@@ -278,5 +278,28 @@ class Sort {
 }
 const obj = new Sort(5, 1, 4, 10, 6, 9, 8, 15, 21, 18); // pass the array elements
 // obj.printArray();
-obj.insertionSort();
-obj.printArray();
+// obj.insertionSort();
+// obj.printArray();
+// program to count the sum of array elements using classes and objects
+class Arrays {
+    constructor(...numsArray) {
+        this.numsArray = numsArray;
+    }
+    getArray() {
+        return this.numsArray;
+    }
+    printArray() {
+        console.log(this.numsArray);
+    }
+    countSumofArray() {
+        let sum = 0;
+        this.numsArray.forEach((elem) => sum += elem);
+        this.printArray();
+        console.log(sum);
+        ;
+    }
+}
+const arrObj = new Arrays(1, 3, 8, 59, 29, 10, 12, 28, 10, 11);
+arrObj.countSumofArray();
+let returnArr = arrObj.getArray();
+console.log(returnArr);
