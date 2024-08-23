@@ -391,9 +391,40 @@ class Sort {
 }
 
 const obj = new Sort(5, 1, 4, 10, 6, 9, 8, 15, 21, 18); // pass the array elements
-obj.printArray();
-obj.insertionSort();
-obj.printArray();
+// obj.printArray();
+// obj.insertionSort();
+// obj.printArray();
 
+
+// program to count the sum of array elements using classes and objects
+
+class Arrays {
+    private numsArray: number[];
+
+    constructor(...numsArray: number[]) {
+        this.numsArray = numsArray;
+    }
+
+    public getArray(): number[] {
+        return this.numsArray;
+    }
+
+    private printArray() {
+        console.log(this.numsArray);
+    }
+
+    public countSumofArray() {
+        let sum = 0;
+        this.numsArray.forEach((elem) => sum += elem);
+        this.printArray();
+        console.log(sum);;    
+    }
+}
+
+const arrObj = new Arrays(1, 3, 8, 59, 29, 10, 12, 28, 10, 11);
+arrObj.countSumofArray();
+
+let returnArr: number[] = arrObj.getArray();
+console.log(returnArr);
 
 
