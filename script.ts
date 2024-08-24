@@ -422,9 +422,39 @@ class Arrays {
 }
 
 const arrObj = new Arrays(1, 3, 8, 59, 29, 10, 12, 28, 10, 11);
-arrObj.countSumofArray();
+// arrObj.countSumofArray();
 
-let returnArr: number[] = arrObj.getArray();
-console.log(returnArr);
+// let returnArr: number[] = arrObj.getArray();
+// console.log(returnArr);
+
+
+// return a new array of numbers in String format using map and implement it using classes and objects
+
+class StringArray {
+    private nums: number[];
+
+    constructor (...nums: number[]) {
+        this.nums = nums;
+    }
+
+    private printArray(nums: string[]) {
+        console.log(nums);
+    }
+
+    public convertToStringArray(): string[] {
+        let strArrayOfNums : string[];
+        strArrayOfNums = this.nums.map((num) => num.toString());
+        console.log(typeof strArrayOfNums);
+        this.printArray(strArrayOfNums);
+        return strArrayOfNums;
+    }
+}
+
+
+const strArrayObj = new StringArray(1, 378, 190, 190, 90.2, -190, 904.90, 78.90431, 389, 10.1);
+
+let strArray: string[] = strArrayObj.convertToStringArray();
+
+
 
 

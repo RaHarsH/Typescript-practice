@@ -300,6 +300,24 @@ class Arrays {
     }
 }
 const arrObj = new Arrays(1, 3, 8, 59, 29, 10, 12, 28, 10, 11);
-arrObj.countSumofArray();
-let returnArr = arrObj.getArray();
-console.log(returnArr);
+// arrObj.countSumofArray();
+// let returnArr: number[] = arrObj.getArray();
+// console.log(returnArr);
+// return a new array of numbers in String format using map and implement it using classes and objects
+class StringArray {
+    constructor(...nums) {
+        this.nums = nums;
+    }
+    printArray(nums) {
+        console.log(nums);
+    }
+    convertToStringArray() {
+        let strArrayOfNums;
+        strArrayOfNums = this.nums.map((num) => num.toString());
+        console.log(typeof strArrayOfNums);
+        this.printArray(strArrayOfNums);
+        return strArrayOfNums;
+    }
+}
+const strArrayObj = new StringArray(1, 378, 190, 190, 90.2, -190, 904.90, 78.90431, 389, 10.1);
+let strArray = strArrayObj.convertToStringArray();
