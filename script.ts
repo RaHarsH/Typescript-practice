@@ -456,7 +456,7 @@ class StringArray {
 // let strArray: string[] = strArrayObj.convertToStringArray();
 
 
-// Manipulating the string array using map and storing the result in a differnet array of type string[]
+// Manipulating the string array using map and storing the result in a different array of type string[]
 let strArr: string[] = ["Histesh", "Aryan", "Superman", "Batman", "Tony Stark"];
 
 strArr.push('Harish');

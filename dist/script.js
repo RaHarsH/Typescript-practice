@@ -321,7 +321,7 @@ class StringArray {
 }
 // const strArrayObj = new StringArray(1, 378, 190, 190, 90.2, -190, 904.90, 78.90431, 389, 10.1);
 // let strArray: string[] = strArrayObj.convertToStringArray();
-// Manipulating the string array using map and storing the result in a differnet array of type string[]
+// Manipulating the string array using map and storing the result in a different array of type string[]
 let strArr = ["Histesh", "Aryan", "Superman", "Batman", "Tony Stark"];
 strArr.push('Harish');
 const helloStrArr = strArr.map((str) => `Hello ${str}`);
