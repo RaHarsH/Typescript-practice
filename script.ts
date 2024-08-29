@@ -462,6 +462,7 @@ let strArr: string[] = ["Histesh", "Aryan", "Superman", "Batman", "Tony Stark"];
 strArr.push('Harish');
 const helloStrArr: string[] = strArr.map((str: string) => `Hello ${str}`);
 
+// print the modified array of strings
 console.log(helloStrArr);
 
 
