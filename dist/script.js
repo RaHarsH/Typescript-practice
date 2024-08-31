@@ -1,4 +1,15 @@
 "use strict";
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PI = void 0;
 function acceptUser(user) {
@@ -325,4 +336,28 @@ class StringArray {
 let strArr = ["Histesh", "Aryan", "Superman", "Batman", "Tony Stark"];
 strArr.push('Harish');
 const helloStrArr = strArr.map((str) => `Hello ${str}`);
-console.log(helloStrArr);
+let dbAdmin = {
+    adId: 1001,
+    adminName: "Hitesh",
+    adminPassword: "&&8***??*%$!#",
+    canAccess: true,
+};
+// console.log(dbAdmin)
+let { adId, adminName } = dbAdmin, other = __rest(dbAdmin, ["adId", "adminName"]);
+// console.log(adId);
+// console.log(adminName);
+// other contains the rest of the properties in the form of an object
+// console.log(other);
+// returning an array through a function and destructuring it
+const returnArr = () => {
+    let arr = ['Hello', 'Hi', 'Bye', 'How are you', 'How was your day'];
+    // return an array
+    // return arr;
+    // or
+    return arr.map((greeting) => `${greeting} Rahul`);
+};
+// let [greeting1, greeting2, greeting3, greeting4, greeting5] = returnArr();
+let [greeting1, greeting2, ...otherGreetings] = returnArr();
+// console.table([greeting1, greeting2, greeting3, greeting4, greeting5]);
+// console.log(greeting1);
+// console.log(otherGreetings);

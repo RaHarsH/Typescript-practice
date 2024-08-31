@@ -463,7 +463,61 @@ strArr.push('Harish');
 const helloStrArr: string[] = strArr.map((str: string) => `Hello ${str}`);
 
 // print the modified array of strings
-console.log(helloStrArr);
+// console.log(helloStrArr);
+
+
+// destructuring an object
+
+type Admin = {
+    adId: number,
+    adminName: string,
+    adminRights?: string,  // optional property , doesnt give any error even if not provided
+    adminPassword: string,
+    canAccess: boolean
+}
+
+
+let dbAdmin: Admin = {
+    adId: 1001,
+    adminName: "Hitesh",
+    adminPassword: "&&8***??*%$!#",
+    canAccess: true,
+}
+
+// console.log(dbAdmin)
+
+let {adId, adminName, ...other} = dbAdmin;
+
+// console.log(adId);
+// console.log(adminName);
+
+// other contains the rest of the properties in the form of an object
+// console.log(other);
+
+
+
+
+// returning an array through a function and destructuring it
+
+const returnArr = (): string[] => {
+    let arr: string[] = ['Hello', 'Hi', 'Bye', 'How are you', 'How was your day'];
+    // return an array
+    // return arr;
+
+    // or
+
+    return arr.map((greeting) => `${greeting} Rahul`);
+}
+
+// let [greeting1, greeting2, greeting3, greeting4, greeting5] = returnArr();
+let [greeting1, greeting2, ...otherGreetings] = returnArr();
+
+
+// console.table([greeting1, greeting2, greeting3, greeting4, greeting5]);
+
+// console.log(greeting1);
+// console.log(otherGreetings);
+
 
 
 
