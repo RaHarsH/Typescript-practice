@@ -11,7 +11,7 @@ practicing TypeScript
 * enumerations - enum type
 * type keyword
 
-* User defineed types usinf type keyword
+* User defineed types using type keyword
 
 * Arrays
 * Tuples
