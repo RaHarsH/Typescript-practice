@@ -1,6 +1,6 @@
 practicing TypeScript
 
-*any, unknown -> never use these types
+* any, unknown -> never use these types
 
 * primtitve types & reference types
 * Union and intersection of types
